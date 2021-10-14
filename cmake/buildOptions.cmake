@@ -75,7 +75,21 @@ option(ENABLE_AKN            "Build the RR ~k-oo-N OT-Ext protocol." OFF)
 set(ENABLE_BITPOLYMUL ${ENABLE_SILENTOT})
 
 
+#option(FETCH_BITPOLYMUL		"download and build bitpolymul" OFF))
+EVAL(FETCH_BITPOLYMUL_IMPL 
+	(DEFINED FETCH_BITPOLYMUL AND FETCH_BITPOLYMUL) OR
+	((NOT DEFINED FETCH_BITPOLYMUL) AND (FETCH_AUTO AND ENABLE_BITPOLYMUL)))
+
+#option(FETCH_COPROTO		"download and build Coproto" OFF))
+EVAL(FETCH_COPROTO_IMPL 
+	(DEFINED FETCH_COPROTO AND FETCH_COPROTO) OR
+	((NOT DEFINED FETCH_COPROTO) AND (FETCH_AUTO)))
+
 message(STATUS "General Options\n=======================================================")
+
+message(STATUS "Option: FETCH_BITPOLYMUL      = ${FETCH_BITPOLYMUL_IMPL}")
+message(STATUS "Option: FETCH_COPROTO         = ${FETCH_COPROTO_IMPL}\n")
+
 message(STATUS "Option: ENABLE_ALL_OT         = ON/OFF")
 
 message(STATUS "Base OT protocols\n=======================================================")
