@@ -30,7 +30,7 @@ endmacro()
 if(FETCH_BITPOLYMUL_IMPL)
     FIND_BITPOLYMUL(QUIET)
 
-    include(${CMAKE_CURRENT_LIST_DIR}/../thirdparty/getBitpolymul.cmake)
+    include("${CMAKE_CURRENT_LIST_DIR}/../thirdparty/getBitpolymul.cmake")
 endif()
 
 if (ENABLE_BITPOLYMUL)
