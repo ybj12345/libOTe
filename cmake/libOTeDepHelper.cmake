@@ -42,27 +42,6 @@ if (ENABLE_BITPOLYMUL)
 endif ()
 
 
-## bitpolymul
-###########################################################################
-
-macro(FIND_COPROTO)
-    if(FETCH_COPROTO_IMPL)
-        set(COPROTO_DP NO_DEFAULT_PATH PATHS ${OC_THIRDPARTY_HINT})
-    else()
-        unset(COPROTO_DP)
-    endif()
-    
-    find_package(coproto ${COPROTO_DP} ${ARGN})
-endmacro()
-
-if(FETCH_COPROTO_IMPL)
-    FIND_COPROTO(QUIET)
-    include(${CMAKE_CURRENT_LIST_DIR}/../thirdparty/getCoproto.cmake)
-endif()
-
-
-FIND_COPROTO(REQUIRED)
-
 # resort the previous prefix path
 set(CMAKE_PREFIX_PATH ${PUSHED_CMAKE_PREFIX_PATH})
 cmake_policy(POP)
