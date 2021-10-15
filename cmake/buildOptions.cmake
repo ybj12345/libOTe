@@ -38,7 +38,7 @@ if(DEFINED ENABLE_ALL_OT)
 	set(ENABLE_MR_KYBER       ${oc_BB}						CACHE BOOL "" FORCE)
 
 	# requires sse
-	if(NOT ENABLE_SSE)
+	if(ENABLE_SSE)
 		set(oc_BB ${ENABLE_ALL_OT})
 	else()
 		set(oc_BB OFF)
