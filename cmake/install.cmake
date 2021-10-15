@@ -45,6 +45,7 @@ install(FILES
           "${CMAKE_CURRENT_BINARY_DIR}/libOTeConfig.cmake"
           "${CMAKE_CURRENT_BINARY_DIR}/libOTeConfigVersion.cmake"
           "${CMAKE_CURRENT_BINARY_DIR}/libOTeDepHelper.cmake"
+          "${CMAKE_CURRENT_BINARY_DIR}/libOTePreample.cmake"
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/libOTe
 )
 

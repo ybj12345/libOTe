@@ -39,10 +39,8 @@ if(DEFINED ENABLE_ALL_OT)
 
 	# requires sse
 	if(ENABLE_SSE)
-		message("\nhere 1\n\n")
 		set(oc_BB ${ENABLE_ALL_OT})
 	else()
-		message("\nhere 2\n\n")
 		set(oc_BB OFF)
 	endif()
 	set(ENABLE_SILENTOT    ${oc_BB}						CACHE BOOL "" FORCE)
