@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master, ci, stage ]
+    branches: [ master, ci ]
   pull_request: {}
 
   # Allows you to run this workflow manually from the Actions tab
@@ -157,7 +157,6 @@ jobs:
       - name: build libOTe
         run:  |
             python3 build.py --par=4 -D ENABLE_ALL_OT=ON -D ENABLE_RELIC=ON  -D ENABLE_SSE=OFF
-            python3 build.py --par=4 -D ENABLE_SILENTOT=OFF
 
       - name: unit tests
         run:  ./out/build/linux/frontend/frontend_libOTe -u
@@ -225,9 +224,6 @@ jobs:
       - name: build relic
         run: python3 build.py --setup --relic --par=4
         
-      - name: build bitpolymul
-        run:  python3 build.py --setup --bitpolymul --par=4
-
       - name: build libOTe
         run:  python3 build.py --par=4 -D ENABLE_ALL_OT=ON -D ENABLE_RELIC=ON   -G Ninja
 

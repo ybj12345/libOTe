@@ -37,6 +37,13 @@ if(DEFINED ENABLE_ALL_OT)
 	set(ENABLE_SIMPLESTOT_ASM ${oc_BB}						CACHE BOOL "" FORCE)
 	set(ENABLE_MR_KYBER       ${oc_BB}						CACHE BOOL "" FORCE)
 
+	# requires sse
+	if(NOT ENABLE_SSE)
+		set(oc_BB ${ENABLE_ALL_OT})
+	else()
+		set(oc_BB OFF)
+	endif()
+	set(ENABLE_SILENT_VOLE    ${oc_BB}						CACHE BOOL "" FORCE)
 
 	# general
 	set(ENABLE_KOS            ${ENABLE_ALL_OT}						CACHE BOOL "" FORCE)
@@ -48,7 +55,6 @@ if(DEFINED ENABLE_ALL_OT)
 	set(ENABLE_KKRT           ${ENABLE_ALL_OT}						CACHE BOOL "" FORCE)
 	set(ENABLE_RR             ${ENABLE_ALL_OT}						CACHE BOOL "" FORCE)
 	set(ENABLE_AKN            ${ENABLE_ALL_OT}						CACHE BOOL "" FORCE)
-	set(ENABLE_SILENT_VOLE    ${ENABLE_ALL_OT}						CACHE BOOL "" FORCE)
 	unset(ENABLE_ALL_OT CACHE)
 endif()
 
@@ -80,17 +86,11 @@ EVAL(FETCH_BITPOLYMUL_IMPL
 	(DEFINED FETCH_BITPOLYMUL AND FETCH_BITPOLYMUL) OR
 	((NOT DEFINED FETCH_BITPOLYMUL) AND (FETCH_AUTO AND ENABLE_BITPOLYMUL)))
 
-#option(FETCH_COPROTO		"download and build Coproto" OFF))
-EVAL(FETCH_COPROTO_IMPL 
-	(DEFINED FETCH_COPROTO AND FETCH_COPROTO) OR
-	((NOT DEFINED FETCH_COPROTO) AND (FETCH_AUTO)))
 
 message(STATUS "General Options\n=======================================================")
 
 message(STATUS "Option: FETCH_BITPOLYMUL      = ${FETCH_BITPOLYMUL_IMPL}")
-message(STATUS "Option: FETCH_COPROTO         = ${FETCH_COPROTO_IMPL}\n")
-
-message(STATUS "Option: ENABLE_ALL_OT         = ON/OFF")
+message(STATUS "Option: ENABLE_ALL_OT         = ON/OFF\n\n")
 
 message(STATUS "Base OT protocols\n=======================================================")
 message(STATUS "Option: ENABLE_SIMPLESTOT     = ${ENABLE_SIMPLESTOT}")
