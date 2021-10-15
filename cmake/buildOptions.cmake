@@ -39,16 +39,17 @@ if(DEFINED ENABLE_ALL_OT)
 
 	# requires sse
 	if(ENABLE_SSE)
+		message("\nhere 1\n\n")
 		set(oc_BB ${ENABLE_ALL_OT})
 	else()
+		message("\nhere 2\n\n")
 		set(oc_BB OFF)
 	endif()
-	set(ENABLE_SILENT_VOLE    ${oc_BB}						CACHE BOOL "" FORCE)
+	set(ENABLE_SILENTOT    ${oc_BB}						CACHE BOOL "" FORCE)
 
 	# general
 	set(ENABLE_KOS            ${ENABLE_ALL_OT}						CACHE BOOL "" FORCE)
 	set(ENABLE_IKNP           ${ENABLE_ALL_OT}						CACHE BOOL "" FORCE)
-	set(ENABLE_SILENTOT       ${ENABLE_ALL_OT}						CACHE BOOL "" FORCE)
 	set(ENABLE_DELTA_KOS      ${ENABLE_ALL_OT}						CACHE BOOL "" FORCE)
 	set(ENABLE_DELTA_IKNP     ${ENABLE_ALL_OT}						CACHE BOOL "" FORCE)
 	set(ENABLE_OOS            ${ENABLE_ALL_OT}						CACHE BOOL "" FORCE)
